@@ -25,11 +25,6 @@ const MainPanel = ({ tasks, setTasks, fetchTasks, logout, loading, view }) => {
   // Remove local view state and setView
 
   // Add task
-  const taskData = {
-    title: "New Task",
-    description: "Task description",
-    dueDate: new Date().toISOString()
-  };
   const handleAdd = async ({ title, category }) => {
     setAddLoading(true);
     try {
