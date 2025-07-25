@@ -8,6 +8,8 @@ import Insights from './Insights';
 import Analytics from './Analytics';
 
 const API_URL = process.env.REACT_APP_API_URL;
+fetch(`${process.env.REACT_APP_API_URL}/api/tasks`)
+
 
 
 const MainPanel = ({ tasks, setTasks, fetchTasks, logout, loading, view }) => {

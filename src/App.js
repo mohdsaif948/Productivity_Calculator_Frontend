@@ -6,7 +6,7 @@ import LoginPage from './components/LoginPage';
 import MainPanel from './components/MainPanel';
 import './App.css';
 
-const API_URL = 'http://localhost:5000/api/tasks';
+const API_URL = process.env.REACT_APP_API_URL;
 
 function App() {
   const [isAuth, setIsAuth] = useState(!!localStorage.getItem('taskflow_auth'));
