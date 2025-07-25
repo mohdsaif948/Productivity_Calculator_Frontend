@@ -25,6 +25,11 @@ const MainPanel = ({ tasks, setTasks, fetchTasks, logout, loading, view }) => {
   // Remove local view state and setView
 
   // Add task
+  const taskData = {
+    title: "New Task",
+    description: "Task description",
+    dueDate: new Date().toISOString()
+  };
   const handleAdd = async ({ title, category }) => {
     setAddLoading(true);
     try {
@@ -175,9 +180,9 @@ const MainPanel = ({ tasks, setTasks, fetchTasks, logout, loading, view }) => {
     <div style={containerStyle}>
       <h1 style={titleStyle}>TaskFlow Analytics</h1>
       <div style={navBarStyle}>
-        <button style={navBtnStyle(view==='dashboard')} onClick={()=>navigate('/dashboard')}>Dashboard</button>
-        <button style={navBtnStyle(view==='insights')} onClick={()=>navigate('/insights')}>Insights</button>
-        <button style={navBtnStyle(view==='analytics')} onClick={()=>navigate('/analytics')}>Analytics</button>
+        <button style={navBtnStyle(view === 'dashboard')} onClick={() => navigate('/dashboard')}>Dashboard</button>
+        <button style={navBtnStyle(view === 'insights')} onClick={() => navigate('/insights')}>Insights</button>
+        <button style={navBtnStyle(view === 'analytics')} onClick={() => navigate('/analytics')}>Analytics</button>
         <button style={logoutBtnStyle} onClick={logout}>Logout</button>
       </div>
       {view === 'dashboard' && (
@@ -200,16 +205,16 @@ const MainPanel = ({ tasks, setTasks, fetchTasks, logout, loading, view }) => {
       )}
       {view === 'insights' && (
         <>
-          <div style={{display:'flex',justifyContent:'center',marginBottom:16}}>
-            <button style={navBtnStyle(false)} onClick={()=>navigate('/dashboard')}>Back to Dashboard</button>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 16 }}>
+            <button style={navBtnStyle(false)} onClick={() => navigate('/dashboard')}>Back to Dashboard</button>
           </div>
           <Insights tasks={tasks} />
         </>
       )}
       {view === 'analytics' && (
         <>
-          <div style={{display:'flex',justifyContent:'center',marginBottom:16}}>
-            <button style={navBtnStyle(false)} onClick={()=>navigate('/dashboard')}>Back to Dashboard</button>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 16 }}>
+            <button style={navBtnStyle(false)} onClick={() => navigate('/dashboard')}>Back to Dashboard</button>
           </div>
           <Analytics tasks={tasks} />
         </>
