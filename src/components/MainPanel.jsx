@@ -9,11 +9,6 @@ import Analytics from './Analytics';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-fetch(`${API_URL}/api/tasks`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(taskData)
-});
 
 const MainPanel = ({ tasks, setTasks, fetchTasks, logout, loading, view }) => {
   const navigate = useNavigate();
